@@ -4,6 +4,7 @@
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const modalDate = document.querySelector("[data-modal-date]");
 
 
 
@@ -35,19 +36,29 @@ const testimonialsModalFunc = function () {
 
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
-
   testimonialsItem[i].addEventListener("click", function () {
-
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
     modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
 
+    // get date from the testimonial list item attribute
+    const dateValue = this.closest(".testimonials-item").dataset.testimonialsDate;
+    if (dateValue) {
+      modalDate.setAttribute("datetime", dateValue);
+      // Format date nicely, e.g. "13 May, 2025"
+      const options = { year: "numeric", month: "short", day: "numeric" };
+      const formattedDate = new Date(dateValue).toLocaleDateString(undefined, options);
+      modalDate.textContent = formattedDate;
+    } else {
+      modalDate.removeAttribute("datetime");
+      modalDate.textContent = "";
+    }
+
     testimonialsModalFunc();
-
   });
-
 }
+
 
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
@@ -58,7 +69,7 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
