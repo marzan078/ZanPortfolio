@@ -1,0 +1,323 @@
+/* ===== Base Styles ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(images/yellowBg.png);
+  background-repeat: repeat-y;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== Responsive Behavior ===== */
+
+/* ===== Mobile-First Default (Hidden Sidebar) ===== */
+.header {
+  position: fixed;
+  left: -100%; /* Fully hidden off-screen */
+  width: 75%; /* Width when expanded */
+  height: 100vh;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  background: white;
+  overflow-y: auto; /* Scroll if content is long */
+}
+
+.header.show {
+  left: 0;
+}
+
+/* Logo Centering */
+.logo {
+  text-align: center;
+  margin-bottom: 30px; /* Space between logo and buttons */
+  margin-left: 15px;
+}
+
+.logo img {
+  max-width: 80%; /* Prevent overflow */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Navigation Button Centering */
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center buttons horizontally */
+  gap: 12px; /* Space between buttons */
+}
+
+/* Modified Button-81 for Sidebar */
+.navbar .button-81 {
+  width: 90%; /* Make buttons almost full width */
+  max-width: 160px; /* But not too wide */
+  margin: 0; /* Remove your original left margin */
+  padding: 0.8rem 1.2rem; /* Slightly adjusted padding */
+  font-size: 0.95rem; /* Slightly smaller text */
+}
+
+/* Toggle button always visible */
+#toggleMenu {
+  display: block;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+}
+
+/* ===== Main Content ===== */
+main {
+  margin-left: 0;
+  padding: 20px;
+  padding-top: 80px; /* Space for toggle button */
+}
+
+/* ===== Product Sections ===== */
+.product-section {
+  margin-bottom: 50px;
+}
+
+.product-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-details h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.price, .stock {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+/* ===== Buttons ===== */
+.button-81 {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-align: center;
+  transition: all 0.2s ease;
+  min-width: 48px;
+  min-height: 48px;
+  margin: 5px 0;
+}
+
+.button-81:hover {
+  background-color: #62BFED;
+  color: #fff;
+}
+
+.add-to-cart {
+  background-color: #09A129;
+  color: white;
+}
+
+.stock-btn {
+  background-color: #f0f0f0;
+}
+
+/* ===== Cart ===== */
+.cart-summary {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#cart-button {
+  padding: 12px 20px;
+  background-color: white;
+}
+
+.cart-content {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 90vw;
+  max-width: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 1000;
+}
+
+.cart-content.show {
+  display: block;
+}
+
+#cart-items {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+/* ===== Footer Buttons ===== */
+#scrollBtn {
+  position: fixed;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:#62BFED;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#backButton {
+  bottom: 20px;
+}
+
+#scrollBtn {
+  bottom: 80px;
+}
+
+.button-81 {
+  background-color: #62BFED;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Desktop (1024px and up) - Full layout */
+@media (min-width: 1024px) {
+  .header {
+    left: 0;
+    width: 180px;
+  }
+  main {
+    margin-left: 180px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  #toggleMenu {
+    display: none;
+  }
+}
+
+/* ===== Desktop View (≥900px) ===== */
+@media (min-width: 900px) {
+  .header {
+    left: 0; /* Sidebar visible */
+    width: 180px;
+  }
+  #toggleMenu {
+    display: none; /* Hide toggle button */
+  }
+  main {
+    margin-left: 180px;
+    padding: 40px;
+  }
+}
+
+/* ===== Emergency Override for All Small Views ===== */
+@media (max-width: 899px) {
+  .header:not(.show) {
+    visibility: hidden; /* Guaranteed hide when not toggled */
+  }
+}
+
+/* Tablet/Narrow Desktop (768px-900px) */
+@media (max-width: 899px) and (min-width: 768px) {
+  .header {
+    left: -200px; /* Completely hidden */
+    width: 0;
+  }
+  main {
+    margin-left: 0;
+  }
+  #toggleMenu {
+    display: block;
+  }
+}
+
+/* Mobile (Below 768px) */
+@media (max-width: 767px) {
+  .header {
+    left: -200px; /* Completely hidden */
+    width: 180px;
+  }
+  .header.show {
+    left: 0; /* Only shows when menu button clicked */
+  }
+  main {
+    margin-left: 0;
+    padding: 20px;
+    padding-top: 80px;
+  }
+  #toggleMenu {
+    display: block;
+  }
+  
+  .navbar button {
+    white-space: normal;
+    padding: 8px 5px;
+  }
+}

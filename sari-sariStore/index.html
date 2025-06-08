@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Brand Store</title>
+  <link rel="stylesheet" href="Saristyles.css">
+</head>
+<body>
+  <button id="toggleMenu" aria-label="Toggle menu"  class="button-81">☰ Menu</button>
+  
+  <header class="header" id="header">
+    <a href="#" class="logo">
+      <img src="images/logo2.png" alt="Store Logo">
+    </a>
+    <nav class="navbar">
+      <button type="button" onclick="displayJeans()" class="button-81">
+        <span class="btn-text">Jeans</span>
+      </button>
+      
+      <button type="button" onclick="displayTshirt()"  class="button-81">
+        <span class="btn-text">Shirt</span>
+      </button>
+
+      <button type="button" onclick="displayPerfume()"  class="button-81">
+        <span class="btn-text">Perfume</span>
+      </button>
+
+      <button type="button" onclick="displaySando()"  class="button-81">
+        <span class="btn-text">Sando</span>
+      </button>
+
+      <button type="button" onclick="displayToy()"  class="button-81">
+        <span class="btn-text">Toys</span>
+      </button>
+      <!-- Other buttons with same structure -->
+
+      <button type="button" class="button-81">Stock Management</button>
+    </nav>
+  </header>
+
+  <div class="cart-summary">
+    <button id="cart-button" onclick="toggleCart()" class="button-81"> 
+      <span id="cart-count-summary">0</span> 🛒
+    </button>
+    <div class="cart-content" id="cart-content">
+      <div id="cart-items"></div>
+      <fieldset>
+        <legend>Discounts</legend>
+        <input type="radio" name="discount" id="student" value="0.10">
+        <label for="student">Student 15%</label><br>
+        <input type="radio" name="discount" id="senior" value="0.20">
+        <label for="senior">Senior 20%</label><br>
+        <input type="radio" name="discount" id="disabled" value="0.30">
+        <label for="disabled">Disabled 30%</label>
+      </fieldset>
+      <p>Total: $<span id="cart-total">0.00</span></p>
+      <button onclick="checkout()" id="check" class="button-81">Checkout</button>
+    </div>
+  </div>
+  
+  <main>
+    <!-- Jeans Section -->
+    <section class="product-section" id="jeans">
+      <h2>Jeans</h2>
+      <div class="product-grid">
+        <!-- Jeans 1 -->
+        <div class="product-card">
+          <img src="images/jeans1.png" alt="Jeans 1">
+          <div class="product-details">
+            <h3>Jeans 1</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="jeans1-price">30.00</span></p>
+            <p class="stock">Stock: <span id="jeans1-stock">10</span></p>
+            <button onclick="addToCart('Jeans 1', 'jeans1')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('jeans1')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Jeans 2 -->
+        <div class="product-card">
+          <img src="images/jeans2.png" alt="Jeans 2">
+          <div class="product-details">
+            <h3>Jeans 2</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="jeans2-price">20.00</span></p>
+            <p class="stock">Stock: <span id="jeans2-stock">10</span></p>
+            <button onclick="addToCart('Jeans 2', 'jeans2')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('jeans2')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+        
+        <!-- Jeans 3 -->
+        <div class="product-card">
+          <img src="images/jeans3.png" alt="Jeans 3">
+          <div class="product-details">
+            <h3>Jeans 3</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="jeans3-price">10.00</span></p>
+            <p class="stock">Stock: <span id="jeans3-stock">10</span></p>
+            <button onclick="addToCart('Jeans 3', 'jeans3')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('jeans3')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Jeans 4 -->
+        <div class="product-card">
+          <img src="images/jeans4.png" alt="Jeans 4">
+          <div class="product-details">
+            <h3>Jeans 4</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="jeans4-price">15.00</span></p>
+            <p class="stock">Stock: <span id="jeans4-stock">10</span></p>
+            <button onclick="addToCart('Jeans 4', 'jeans4')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('jeans4')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- T-shirt Section -->
+    <section class="product-section" id="tshirt">
+      <h2>T-shirt</h2>
+      <div class="product-grid">
+        <!-- Tshirt 1 -->
+        <div class="product-card">
+          <img src="images/t-shirt1.png" alt="T-shirt 1">
+          <div class="product-details">
+            <h3>T-shirt 1</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="tshirt1-price">30.00</span></p>
+            <p class="stock">Stock: <span id="tshirt1-stock">10</span></p>
+            <button onclick="addToCart('T-shirt 1', 'tshirt1')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('tshirt1')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Tshirt 2 -->
+        <div class="product-card">
+          <img src="images/t-shirt2.png" alt="T-shirt 2">
+          <div class="product-details">
+            <h3>T-shirt 2</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="tshirt2-price">20.00</span></p>
+            <p class="stock">Stock: <span id="tshirt2-stock">10</span></p>
+            <button onclick="addToCart('T-shirt 2', 'tshirt2')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('tshirt2')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Tshirt 3 -->
+        <div class="product-card">
+          <img src="images/t-shirt3.png" alt="T-shirt 3">
+          <div class="product-details">
+            <h3>T-shirt 3</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="tshirt3-price">10.00</span></p>
+            <p class="stock">Stock: <span id="tshirt3-stock">10</span></p>
+            <button onclick="addToCart('T-shirt 3', 'tshirt3')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('tshirt3')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Tshirt 4 -->
+        <div class="product-card">
+          <img src="images/t-shirt4.png" alt="T-shirt 4">
+          <div class="product-details">
+            <h3>T-shirt 4</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="tshirt4-price">10.00</span></p>
+            <p class="stock">Stock: <span id="tshirt4-stock">10</span></p>
+            <button onclick="addToCart('T-shirt 4', 'tshirt4')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('tshirt4')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Perfume Section -->
+    <section class="product-section" id="perfume">
+      <h2>Perfume</h2>
+      <div class="product-grid">
+        <!-- Perfume 1 -->
+        <div class="product-card">
+          <img src="images/perfume1.png" alt="Perfume 1">
+          <div class="product-details">
+            <h3>Perfume 1</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="perfume1-price">5.00</span></p>
+            <p class="stock">Stock: <span id="perfume1-stock">10</span></p>
+            <button onclick="addToCart('Perfume 1', 'perfume1')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('perfume1')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Perfume 2 -->
+        <div class="product-card">
+          <img src="images/perfume2.png" alt="Perfume 2">
+          <div class="product-details">
+            <h3>Perfume 2</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="perfume2-price">8.00</span></p>
+            <p class="stock">Stock: <span id="perfume2-stock">10</span></p>
+            <button onclick="addToCart('Perfume 2', 'perfume2')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('perfume2')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Perfume 3 -->
+        <div class="product-card">
+          <img src="images/perfume3.png" alt="Perfume 3">
+          <div class="product-details">
+            <h3>Perfume 3</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="perfume3-price">9.00</span></p>
+            <p class="stock">Stock: <span id="perfume3-stock">10</span></p>
+            <button onclick="addToCart('Perfume 3', 'perfume3')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('perfume3')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Perfume 4 -->
+        <div class="product-card">
+          <img src="images/perfume4.png" alt="Perfume 4">
+          <div class="product-details">
+            <h3>Perfume 4</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="perfume4-price">7.00</span></p>
+            <p class="stock">Stock: <span id="perfume4-stock">10</span></p>
+            <button onclick="addToCart('Perfume 4', 'perfume4')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('perfume4')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sando Section -->
+    <section class="product-section" id="sando">
+      <h2>Sando</h2>
+      <div class="product-grid">
+        <!-- Sando 1 -->
+        <div class="product-card">
+          <img src="images/sando1.png" alt="Sando 1">
+          <div class="product-details">
+            <h3>Sando 1</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="sando1-price">8.00</span></p>
+            <p class="stock">Stock: <span id="sando1-stock">10</span></p>
+            <button onclick="addToCart('Sando 1', 'sando1')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('sando1')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Sando 2 -->
+        <div class="product-card">
+          <img src="images/sando2.png" alt="Sando 2">
+          <div class="product-details">
+            <h3>Sando 2</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="sando2-price">10.00</span></p>
+            <p class="stock">Stock: <span id="sando2-stock">10</span></p>
+            <button onclick="addToCart('Sando 2', 'sando2')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('sando2')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Sando 3 -->
+        <div class="product-card">
+          <img src="images/sando3.png" alt="Sando 3">
+          <div class="product-details">
+            <h3>Sando 3</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="sando3-price">11.00</span></p>
+            <p class="stock">Stock: <span id="sando3-stock">10</span></p>
+            <button onclick="addToCart('Sando 3', 'sando3')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('sando3')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Sando 4 -->
+        <div class="product-card">
+          <img src="images/sando4.png" alt="Sando 4">
+          <div class="product-details">
+            <h3>Sando 4</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="sando4-price">11.00</span></p>
+            <p class="stock">Stock: <span id="sando4-stock">10</span></p>
+            <button onclick="addToCart('Sando 4', 'sando4')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('sando4')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toys Section -->
+    <section class="product-section" id="toy">
+      <h2>Toys</h2>
+      <div class="product-grid">
+        <!-- Toy 1 -->
+        <div class="product-card">
+          <img src="images/toy1.png" alt="Toy 1">
+          <div class="product-details">
+            <h3>Toy 1</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="toy1-price">5.00</span></p>
+            <p class="stock">Stock: <span id="toy1-stock">10</span></p>
+            <button onclick="addToCart('Toy 1', 'toy1')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('toy1')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Toy 2 -->
+        <div class="product-card">
+          <img src="images/toy2.png" alt="Toy 2">
+          <div class="product-details">
+            <h3>Toy 2</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="toy2-price">6.00</span></p>
+            <p class="stock">Stock: <span id="toy2-stock">10</span></p>
+            <button onclick="addToCart('Toy 2', 'toy2')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('toy2')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Toy 3 -->
+        <div class="product-card">
+          <img src="images/toy3.png" alt="Toy 3">
+          <div class="product-details">
+            <h3>Toy 3</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="toy3-price">8.00</span></p>
+            <p class="stock">Stock: <span id="toy3-stock">10</span></p>
+            <button onclick="addToCart('Toy 3', 'toy3')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('toy3')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Toy 4 -->
+        <div class="product-card">
+          <img src="images/toy4.png" alt="Toy 4">
+          <div class="product-details">
+            <h3>Toy 4</h3>
+            <p>This piece boasts clean lines and luxurious fabric, draping elegantly over your frame.</p>
+            <p class="price">Price: $<span id="toy4-price">5.00</span></p>
+            <p class="stock">Stock: <span id="toy4-stock">10</span></p>
+            <button onclick="addToCart('Toy 4', 'toy4')" class="button-81 add-to-cart">Add to Cart</button>
+            <button onclick="increaseStock('toy4')" class="button-81 stock-btn">Add Stock</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <button id="scrollBtn" aria-label="Scroll to top">
+    <img src="images/scrollBtn.png" alt="" style="width: 60%; height: auto;">
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
