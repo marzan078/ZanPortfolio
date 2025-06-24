@@ -292,6 +292,21 @@ article.active {
   z-index: -1;
 }
 
+.content-card h5{
+  color: whitesmoke;
+  margin-left: auto;
+}
+
+.testimonials-text .contact-info p{
+  margin-left: 30px;
+  color: 	#ffda6b;
+}
+
+.testimonials-modal .contact-info p{
+  margin-left: 30px;
+  color: 	#ffda6b;
+}
+
 
 
 
@@ -601,7 +616,9 @@ main {
   box-shadow: var(--shadow-1);
 }
 
-.testimonials-item-title { margin-bottom: 7px; }
+.testimonials-item-title {
+  margin-bottom: 7px; 
+}
 
 .testimonials-text {
   color: var(--light-gray);
@@ -972,7 +989,9 @@ main {
   margin-bottom: 10px;
 }
 
-.project-item { display: none; }
+.project-item { 
+  display: none; 
+}
 
 .project-item.active {
   display: block;
@@ -1476,6 +1495,14 @@ textarea.form-input::-webkit-resizer { display: none; }
     -webkit-line-clamp: 2;
   }
 
+  .testimonials-text .description{
+    text-indent: 2em;
+  }
+
+  .testimonials-modal .description{
+    text-indent: 2em;
+  }
+
   /* testimonials modal */
 
   .modal-container { padding: 20px; }
@@ -1627,6 +1654,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     gap: 35px;
     max-width: 680px;
   }
+
+
 
   .modal-avatar-box img { width: 80px; }
 
